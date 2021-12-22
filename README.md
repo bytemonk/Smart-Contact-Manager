@@ -1,5 +1,5 @@
 # Smart-Contact-Manager
-A responsive web application for managing contacts.
+A responsive web application for managing contacts based on MVC architecture.
 
  Implemented in JAVA using Spring Boot, Spring Security, Hibernate, Thymeleaf frameworks. 
  
