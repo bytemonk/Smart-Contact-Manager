@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/user_base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Page</title>
+</head>
+<body>
+	<section>
+
+	<div class="container-fluid">
+
+			<div class="row ">
+
+				<div class="col-md-10 offset-md-1">
+
+					<div class="card mb-4 pl-1 pr-1 pt-4 ">
+
+						<h1 class="text-center mt-2 ">Profile </h1>
+						
+						<span id="partition"></span>
+						
+						<h4 class="text-center mt-3"><span th:text="${user.name}"></span></h4>
+						
+						
+						<div class="table-responsive">
+						<table class="table text-center">
+							<thead >
+								<tr>
+									<th scope="row">#USERID</th>
+									<th><span th:text="${user.id}"></span></th>
+								</tr>
+
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">Name</th>
+									<td><span th:text="${user.name}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Account Status</th>
+									<td  th:if="${user.enabled}" ><span style="color:green;">Active</span></td>
+								</tr>
+
+							</tbody>
+						</table>
+						</div>
+					</div>
+					
+										
+				</div>
+				
+			</div>
+			
+		</div>				
+		<script>
+	$(document).ready(()=>{
+	$(".item").removeClass("active");
+	$("#profile-link").addClass("active");
+	});
+	</script>
+	</section>
+</body>
+</html>

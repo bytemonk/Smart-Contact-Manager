@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/user_base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>About</title>
+</head>
+<body>
+	<section>
+
+		<div class="container-fluid">
+		
+			<div th:if="${session.message}" 
+				 class="alert alert-success text-center" 
+				 style="height:50px; width:80%; margin-left:10%;"
+				 role="alert">
+				<p class="text-center" th:text="${session.message.content}"></p>				
+				<th:block th:text="${#session.removeAttribute('message')}"/>
+						
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-10 offset-md-1">
+
+					<div th:if="${contact}" class="card mb-4 pl-1 pr-1 pt-4 pb-4">
+
+						<h1 class="text-center mt-2 ">Contact Details </h1>
+						
+						<span id="partition"></span>
+						
+						<span>
+						
+						<h4 class=" text-center mt-3"><span th:text="${contact.name}"></span>
+						
+						<span>&nbsp(</span>
+						<span th:text="${contact.nickName}"></span>
+						<span>)</span>
+						
+						</h4>
+						
+						</span>
+						
+						<div class="table-responsive">
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th scope="row"># ID</th>
+									<th><span th:text="${'SCM0'+contact.cId}"></span></th>
+								</tr>
+
+							</thead>
+							<tbody>
+																<tr>
+									<th scope="row">Name</th>
+									<td><span th:text="${contact.name}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Phone</th>
+									<td><span th:text="${contact.phone}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Email</th>
+									<td><span th:text="${contact.email}"></span></td>
+								</tr>
+
+								<tr>
+									<th scope="row">Work</th>
+									<td><span th:text="${contact.work}"></span></td>
+								</tr>
+
+							</tbody>
+						</table>
+						</div>
+						
+						<span id="partition"></span>
+						
+						<h5 class="text-center mt-3" >Description</h5>
+						
+						<div class="description text-center mt-2 pl-5 pr-5">
+						<th:block th:utext="${contact.description}"></th:block>
+						</div>
+						
+						
+						<span class="text-center mt-3">
+									<a th:onclick="|deleteContact(${contact.cId})|" href="#" class="btn btn-danger btn-sm">Delete</a> 
+											&nbsp
+									<a class="btn btn-primary btn-sm">Update</a></span>
+						
+					</div>
+					
+					<h3 class="text-center" th:unless="${contact}">Unauthorized Request</h3>
+										
+				</div>
+				
+			</div>
+			
+		</div>				
+	</section>
+</body>
+</html>

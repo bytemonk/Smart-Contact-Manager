@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/user_base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Page</title>
+</head>
+<body>
+	<section>
+
+	<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-md-10 offset-md-1">
+
+					<div class="card text-center mb-4 pl-1 pr-1 pt-4">
+
+						<div class="container text-center">
+						<img 
+						class="dashboard_img"						
+						src="" 
+						th:src="@{../img/dashboard_pic.png}" 
+						alt="#Dashboard"/>
+						</div>
+						
+						<h2 class="text-center mt-3 text-secondary font-italic font-weight-light">Start Adding Your Contacts.</h2>
+										
+						<a href="#" th:href="@{/user/add-contact}" class="btn btn-primary m-5">Add Contacts</a>
+						
+					</div>
+					
+										
+				</div>
+				
+			</div>
+			
+		</div>				
+
+	<script>
+	$(document).ready(()=>{
+	$(".item").removeClass("active");
+	$("#home-link").addClass("active");
+	});
+	</script>
+
+	</section>
+			
+</body>
+</html>
